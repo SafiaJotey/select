@@ -1,16 +1,15 @@
-import { Server } from 'http'
 import mongoose from 'mongoose'
 import app from './app'
 import config from './config/index'
 
-let server: Server
+let server
 process.on('uncaughtException', error => {
   console.log(error)
   process.exit(1)
 })
 async function bootstrap() {
   try {
-    await mongoose.connect(config.database_url as string)
+    await mongoose.connect(config.database_url)
     console.log('database connected successfully')
     server = app.listen(config.port, () => {
       console.log(`Application app listening on port ${config.port}`)
