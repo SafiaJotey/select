@@ -1,5 +1,4 @@
-import { Schema, model } from 'mongoose';
-
+const { Schema, model } = require('mongoose')
 // Define the schema
 const productSchema = new Schema({
   Image: String,
@@ -12,9 +11,8 @@ const productSchema = new Schema({
   IndividualRating: Number,
   AverageRating: Number,
   Reviews: [String],
-});
+})
 
 // Define the model
-const Product = model('Product', productSchema);
-
-export default Product;
+const Product = model('Product', productSchema)
+module.exports = Product

@@ -1,14 +1,11 @@
-import cors from 'cors'
-import express, { urlencoded } from 'express'
-
-import { ProductRoutes } from './app/modules/products/products.route'
-
+/* eslint-disable @typescript-eslint/no-var-requires */
+const express = require('express')
+const cors = require('cors')
+const mongoose = require('mongoose')
 const app = express()
-app.use(cors())
+
+//middlewares
 app.use(express.json())
-app.use(urlencoded({ extended: true }))
+app.use(cors())
 
-//Application routes
-app.use('/api/v1/users', ProductRoutes)
-
-export default app
+module.exports = app
