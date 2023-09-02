@@ -8,9 +8,8 @@ const productSchema = new Schema({
   Price: Number,
   Description: String,
   KeyFeatures: Object,
-  IndividualRating: Number,
-  AverageRating: Number,
-  Reviews: [String],
+
+  Reviews: [Object],
 })
 
 // Define the model
