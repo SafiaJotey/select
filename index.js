@@ -1,11 +1,19 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
-const productRoutes = require('./app/modules/products/products.route')
-const categoryRoutes = require('./app/modules/categorys/categories.route')
+const productRoutes = require('./src/app/modules/products/products.route')
+const categoryRoutes = require('./src/app/modules/categorys/categories.route')
 
-const app = require('./app')
+const express = require('express')
+const cors = require('cors')
+
+const app = express()
+
+//middlewares
+app.use(express.json())
+app.use(cors())
+
 //server
-const port = process.env.PORT || 8000
+const port = 5000
 mongoose.connect(process.env.DATABASE_LOCAL).then(() => {
   console.log('Database connection is successful')
   app.get('/', (req, res) => {
